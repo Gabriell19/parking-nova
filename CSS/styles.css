@@ -1,0 +1,649 @@
+/* ==========================================================================
+   1. VARIABLES DE COLOR Y CONFIGURACIÓN BASE
+   Puedes cambiar los códigos hexadecimales aquí para ajustar los colores.
+   ========================================================================== */
+:root {
+    --primary-navy: #0a2240;     /* Azul marino oscuro principal (del logo) */
+    --secondary-blue: #0066cc;   /* Azul brillante secundario (del logo) */
+    --accent-light: #e6f0fa;     /* Azul muy claro para fondos de iconos */
+    --bg-light: #f4f7f9;         /* Gris azulado muy suave para alternar secciones */
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;        /* Gris oscuro para lectura cómoda */
+    --text-muted: #64748b;       /* Gris medio para subtítulos */
+    --shadow-soft: 0 10px 25px rgba(10, 34, 64, 0.07);
+    --shadow-hover: 0 15px 35px rgba(0, 102, 204, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al dar clic en el menú */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.7;
+    background-color: var(--bg-white);
+}
+
+h1, h2, h3, h4, .big-number {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-navy);
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   2. BARRA DE NAVEGACIÓN (HEADER)
+   ========================================================================== */
+.navbar {
+    background-color: var(--primary-navy);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    border-radius: 6px;
+}
+
+.logo-text h1 {
+    color: var(--bg-white);
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.logo-text span {
+    color: #93c5fd;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    display: block;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--bg-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #60a5fa;
+}
+
+.btn-nav {
+    background-color: var(--secondary-blue);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+}
+
+.btn-nav:hover {
+    background-color: #0052a3;
+    color: var(--bg-white) !important;
+}
+
+/* ==========================================================================
+   3. SECCIÓN PRINCIPAL (HERO)
+   ========================================================================== */
+.hero {
+    position: relative;
+    /* Imagen de fondo del Hero: Puedes cambiar la URL por una imagen en tu carpeta img */
+    background: url('https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    padding: 7rem 0;
+    text-align: center;
+    color: var(--bg-white);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 34, 64, 0.92) 0%, rgba(0, 102, 204, 0.82) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.badge-top {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+}
+
+.hero h2 {
+    color: var(--bg-white);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: #e2e8f0;
+    margin-bottom: 2.2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.9rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--secondary-blue);
+    color: var(--bg-white);
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #0052a3;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--bg-white);
+    color: var(--bg-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-white);
+    color: var(--primary-navy);
+}
+
+/* ==========================================================================
+   4. SECCIONES Y ESTRUCTURAS DE COLUMNAS
+   ========================================================================== */
+.section {
+    padding: 5rem 0;
+}
+
+.bg-light { background-color: var(--bg-light); }
+.bg-white { background-color: var(--bg-white); }
+.text-center { text-align: center; }
+.mt-3 { margin-top: 3rem; }
+.mb-4 { margin-bottom: 3rem; }
+
+.section-subtitle {
+    color: var(--secondary-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.section-title-left {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+}
+
+.section-desc {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--text-muted);
+}
+
+/* Diseño dividido en 2 columnas (Texto + Imagen) */
+.split-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.split-text p {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+/* Estilos de Imágenes */
+.img-styled {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    border: 4px solid var(--bg-white);
+}
+
+.img-circle {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--bg-white);
+    box-shadow: var(--shadow-soft);
+}
+
+.features-mini {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    flex-wrap: wrap;
+}
+
+.features-mini i {
+    color: var(--secondary-blue);
+    margin-right: 6px;
+}
+
+/* ==========================================================================
+   5. TARJETAS (MISIÓN, VISIÓN, VALORES)
+   ========================================================================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--bg-white);
+    padding: 2.2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-featured {
+    border-top: 5px solid var(--secondary-blue);
+}
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+    background-color: var(--accent-light);
+    color: var(--secondary-blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.card h4 {
+    font-size: 1.35rem;
+    margin-bottom: 0.8rem;
+}
+
+.value-card {
+    text-align: center;
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   6. BANNER DE COMPROMISO (100% EXCELENCIA)
+   ========================================================================== */
+.commitment-banner {
+    background: linear-gradient(90deg, var(--primary-navy) 0%, #103562 100%);
+    color: var(--bg-white);
+    padding: 4rem 0;
+}
+
+.commitment-grid {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.percentage-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    min-width: 240px;
+}
+
+.big-number {
+    color: #60a5fa;
+    font-size: 4rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+
+.number-label {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.commitment-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.commitment-text h3 {
+    color: var(--bg-white);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.commitment-text p {
+    color: #cbd5e1;
+    margin-bottom: 0.8rem;
+}
+
+/* ==========================================================================
+   7. LISTA DE SERVICIOS Y CAPITAL HUMANO
+   ========================================================================== */
+.services-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--bg-light);
+    padding: 1.2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-blue);
+    transition: background 0.3s;
+}
+
+.service-item:hover {
+    background: var(--accent-light);
+}
+
+.service-icon {
+    color: var(--secondary-blue);
+    font-size: 1.4rem;
+    margin-top: 3px;
+}
+
+.service-item h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+}
+
+.check-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.check-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.check-list i {
+    color: var(--secondary-blue);
+    font-size: 1.3rem;
+}
+
+/* ==========================================================================
+   8. CUADRO OFICIAL REPSE Y CONTACTO
+   ========================================================================== */
+.repse-badge {
+    background-color: var(--bg-light);
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid var(--primary-navy);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.repse-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-navy);
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
+
+.repse-details p {
+    margin-bottom: 0.4rem;
+    font-size: 0.92rem;
+}
+
+.contact-card {
+    text-align: center;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-navy);
+    color: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 1.2rem auto;
+}
+
+.contact-card a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   9. PIE DE PÁGINA (FOOTER) Y ADAPTACIÓN A CELULARES
+   ========================================================================== */
+footer {
+    background-color: var(--primary-navy);
+    color: #94a3b8;
+    padding: 2.5rem 0;
+    text-align: center;
+}
+
+.footer-logo h4 {
+    color: var(--bg-white);
+    letter-spacing: 1px;
+}
+
+.footer-logo span {
+    font-size: 0.75rem;
+    color: #60a5fa;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Reglas para pantallas pequeñas (Celulares y Tablets) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    .commitment-grid {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   10. ESTILOS INTERACTIVOS DE CONTACTO Y NOTIFICACIÓN (TOAST)
+   ========================================================================== */
+.helper-text {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
+
+/* Estilo para los botones de teléfono */
+.copy-btn {
+    background-color: var(--bg-light);
+    color: var(--secondary-blue);
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0.3rem 0;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-btn:hover {
+    background-color: var(--secondary-blue);
+    color: var(--bg-white);
+    border-color: var(--secondary-blue);
+}
+
+.copy-btn:active {
+    transform: scale(0.96); /* Efecto de clic al presionar en celular */
+}
+
+/* Estilo para el enlace de Google Maps */
+.address-link {
+    color: var(--text-dark) !important;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+    text-decoration: none !important;
+}
+
+.address-link:hover {
+    background-color: var(--accent-light);
+    color: var(--secondary-blue) !important;
+}
+
+/* Notificación flotante (Toast) cuando se copia el teléfono */
+.toast {
+    visibility: hidden;
+    min-width: 280px;
+    background-color: var(--primary-navy);
+    color: var(--bg-white);
+    text-align: center;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    position: fixed;
+    z-index: 2000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, visibility 0.3s;
+}
+
+.toast i {
+    color: #4ade80; /* Icono verde de éxito */
+    font-size: 1.2rem;
+}
+
+/* Esta clase la activa JavaScript temporalmente */
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
